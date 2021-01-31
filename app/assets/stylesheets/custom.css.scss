@@ -1,1 +1,45 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+    background-color: black !important;
+    opacity: 0.7;
+       
+}
+
+#page-content {
+
+    background-image: asset-url('background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+       
+    // background-color: lightcoral;
+    height: 1000px;    
+}    
+  
+
+
+
+
+.navbar_logo {
+
+    height: 30px;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 10px;
+}
+
+.navbar {
+  
+    margin-left: 0px;
+    padding-left: 0px;
+   
+}
+
+#sticky-footer {
+    // flex-shrink: none;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: black !important;
+    opacity: 0.7;
+  }
