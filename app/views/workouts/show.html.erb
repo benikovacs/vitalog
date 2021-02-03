@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<h2 class="text-center mt-4"></h2>
 
-<p>
-  <strong>User:</strong>
-  <%= @workout.user %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @workout.title %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @workout.duration %>
-</p>
-
-<p>
-  <strong>Calories:</strong>
-  <%= @workout.calories %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @workout.note %>
-</p>
-
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header">
+          <%= @workout.title %>
+        </div>
+        <div class="card-body">
+          <div class="card-text-title text-left"><%= simple_format('Duration: ' + @workout.duration + ' mins') %></div>
+          <div class="card-text text-left"><%= simple_format('Energy burned: ' + @workout.calories + ' kcal') %></div>
+          <div class="card-text text-left"><%= simple_format('Notes: ' + @workout.note) %></div>
+          
+                   
+          
+          
+          <%= link_to "Edit", edit_workout_path(@workout), class: "btn btn-outline-info" %>
+          <%= link_to "Delete", workout_path(@workout), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          <%= link_to "Dashboard", workouts_path, class: "btn btn-outline-info" %>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(@workout.created_at) %> ago, 
+          edited <%= time_ago_in_words(@workout.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

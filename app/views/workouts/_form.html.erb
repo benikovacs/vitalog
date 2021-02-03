@@ -1,42 +1,51 @@
-<%= form_with(model: workout) do |form| %>
-  <% if workout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%# <%= render 'shared/errors' %>
+      <%= form_with(model: @workout, class: "shadow p-3 mb-3 bg-light rounded", local: true) do |f| %>
+       
+        <div class="form-group row">
+          <%= f.label :user, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10">
+            <%= f.text_field :user, class: "form-control rounded", placeholder: "User name" %>
+          </div>
+        </div>
 
-      <ul>
-        <% workout.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <div class="form-group row">
+          <%= f.label :title, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10"> 
+            <%= f.text_area :title, rows: 1, class: "form-control rounded", placeholder: "Activity name" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :duration, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10"> 
+            <%= f.text_area :duration, rows: 1, class: "form-control rounded", placeholder: "in minutes" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :calories, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10"> 
+            <%= f.text_area :calories, rows: 1, class: "form-control rounded", placeholder: "in kcal" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :note, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10"> 
+            <%= f.text_area :note, rows: 10, class: "form-control rounded", placeholder: "notes" %>
+          </div>
+        </div>
+
+
+        <div class="form-group row justify-content-center">
+          <%= f.submit class: "btn btn-outline-success btn-lg mr-4" %>
+          <%= link_to "Cancel and back to dashboard", workouts_path, class: "btn btn-outline-danger btn-lg", data: {confirm: "Are you sure?"} %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :user %>
-    <%= form.text_field :user %>
+   
   </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.text_field :duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :calories %>
-    <%= form.text_field :calories %>
-  </div>
-
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_field :note %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

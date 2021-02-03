@@ -2,27 +2,27 @@
 
 .navbar {
     background-color: black !important;
-    opacity: 0.7;
+    opacity: 0.8;
        
 }
 
-#page-content {
-
-    background-image: asset-url('background.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-       
-    // background-color: lightcoral;
-    height: 1000px;    
-}    
-  
-
-
-
+#home-container {
+    margin-top: 25px;
+    opacity: 0.9;
+    
+}
 
 .navbar_logo {
 
     height: 30px;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 10px;
+}
+
+.card-icon {
+
+    height: 40px;
     margin-left: 0px;
     padding-left: 0px;
     margin-right: 10px;
@@ -35,11 +35,42 @@
    
 }
 
-#sticky-footer {
-    // flex-shrink: none;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background-color: black !important;
-    opacity: 0.7;
+.bg-light {
+    flex-shrink: none;
+    opacity: 0.9; 
+      
   }
+
+  .jumbotron {
+      background: none;
+  }
+
+.card {
+    opacity: 0.93;
+    color: black;
+}
+
+.form-group {
+
+    color: black;
+    font-weight: bold;
+}
+
+body {
+    background: url("background2.jpeg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+    background-size: cover;
+        -o-background-size: cover;
+    padding-bottom: 12em;
+    
+    }
+
+.card-columns {
+    display: inline-block;
+    
+ 
+}
+
+
+

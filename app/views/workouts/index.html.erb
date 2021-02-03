@@ -1,35 +1,57 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Workouts</h1>
+<div class="card mb-2">
+  <div class="dash-hero card-body text-center">
+   <h2> Workouts Dashboard</h2>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Duration</th>
-      <th>Calories</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+<div class="row">
+<div class="card-columns">
 
-  <tbody>
-    <% @workouts.each do |workout| %>
-      <tr>
-        <td><%= workout.user %></td>
-        <td><%= workout.title %></td>
-        <td><%= workout.duration %></td>
-        <td><%= workout.calories %></td>
-        <td><%= workout.note %></td>
-        <td><%= link_to 'Show', workout %></td>
-        <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-        <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  
+  <% @workouts.each do |workout| %>
+  
+    <div class="card text-left shadow mb-2 bg-white rounded ">
+     <div class="workout-card">
+    
+      <div class="card-header font-italic">
+        Logged on <%= workout.created_at.strftime("%B %d %Y, %l:%M%P") %>
+      </div>                
+      
+      <div class="card-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-9">
+            
+              <h5 class="card-title"><%= link_to workout.title, workout_path(workout), class: "text-success" %></h5>
+              <p class="card-text"><%= truncate('Duration: ' + workout.duration + ' mins', length: 100) %> </p>
+              <p class="card-text"><%= truncate('Energy burned: ' + workout.calories + ' kcal', length: 100) %></p>
+              <p class="card-text"><%= truncate('Notes: ' + workout.note, length: 30) %></p>
+              
+            </div>
+            <div class="col-3">
+              <%=image_tag "sample_icon.png", class: "card-icon" %>
+          </div>
+        </div>
+       </div>
+    <br>
 
-<br>
 
-<%= link_to 'New Workout', new_workout_path %>
+        <%= link_to "View", workout, class: "btn btn-outline-success" %>
+        <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-outline-info" %>
+        <%= link_to "Delete", workout, class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+      </div>
+
+      <div class="card-footer mb-auto text-muted">
+        <small>Updated <%= time_ago_in_words(workout.updated_at) %> ago</small>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+
+</div>  
+</div>
+</div>
+ 
