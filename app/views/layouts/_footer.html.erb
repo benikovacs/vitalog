@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer class="bg-light fixed-bottom text-center text-lg-start">
   <!-- Grid container -->
-  <div class="container p-2">
+  <div class="container p-1">
     <!--Grid row-->
     <div class="row">
       <!--Grid column-->
@@ -42,9 +42,19 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    SOCIAL LINKS PLACEHOLDER
-    <a class="text-dark" href="https://mdbootstrap.com/"></a>
+  <div class="text-center " style="background-color: rgba(0, 0, 0, 0.2)">
+ <%= link_to "", class: "navbar-brand", id: "logo" %>
+ <%= link_to "https://facebook.com", :target => "_blank" do %>
+  <span style="font-size:2em"><%=fa_icon "facebook" %>    </span>
+  <%end%>
+  <%= link_to "", class: "navbar-brand", id: "logo" %>
+ <%= link_to "https://twitter.com", :target => "_blank" do %>
+  <span style="font-size:2em"><%=fa_icon "twitter" %>    </span>
+  <%end%>
+  <%= link_to "", class: "navbar-brand", id: "logo" %>
+ <%= link_to "https://instagram.com", :target => "_blank" do %>
+  <span style="font-size:2em"><%=fa_icon "instagram" %></span>
+  <%end%>   
   </div>
   <!-- Copyright -->
 </footer>
