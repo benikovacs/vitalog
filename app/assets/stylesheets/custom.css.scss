@@ -1,15 +1,22 @@
 @import 'bootstrap/dist/css/bootstrap';
 @import "font-awesome";
 
+
+
 .navbar {
     background-color: black !important;
     opacity: 0.8;
        
 }
 
+.navbar .navbar-collapse {
+    text-align: center;
+  }
+
 #home-container {
     margin-top: 25px;
     opacity: 0.9;
+    
     
 }
 
@@ -69,7 +76,8 @@ body {
     }
 
 .card-columns {
-    display: inline-block;
+
+    display: inline-flexbox;
     
  
 }

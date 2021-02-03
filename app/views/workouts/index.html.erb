@@ -7,6 +7,7 @@
 
 <div class="container">
 <div class="row">
+<div class="col">
 <div class="card-columns">
 
   
@@ -21,7 +22,7 @@
       
       <div class="card-body">
         <div class="container-fluid">
-          <div class="row">
+          <div class="row mb-2">
             <div class="col-9">
             
               <h5 class="card-title"><%= link_to workout.title, workout_path(workout), class: "text-success" %></h5>
@@ -30,17 +31,31 @@
               <p class="card-text"><%= truncate('Notes: ' + workout.note, length: 30) %></p>
               
             </div>
+          
             <div class="col-3">
               <%=image_tag "sample_icon.png", class: "card-icon" %>
+            </div>
+          
           </div>
         </div>
-       </div>
-    <br>
+        <div class="container">
+         <div class="row">
+          <div class="col text-center mb-1">
+            <%= link_to "View", workout, class: "btn btn-block btn-outline-success" %>
+          </div>
+          <div class="col text-center mb-1">
+            <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-block btn-outline-info" %>
+          </div>
+          <div class="col text-center">
+            <%= link_to "Delete", workout, class: "btn btn-block btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+          </div>
+         
+        </div>
+    
 
 
-        <%= link_to "View", workout, class: "btn btn-outline-success" %>
-        <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-outline-info" %>
-        <%= link_to "Delete", workout, class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+        
       </div>
 
       <div class="card-footer mb-auto text-muted">
@@ -50,7 +65,7 @@
 
   </div>
   <% end %>
-
+</div>
 </div>  
 </div>
 </div>
