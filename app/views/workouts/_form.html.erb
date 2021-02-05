@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10">
-      <%# <%= render 'shared/errors' %>
+      <%= render 'layouts/errors' %>
       <%= form_with(model: @workout, class: "shadow p-3 mb-3 bg-light rounded", local: true) do |f| %>
        
+       <div class="col">
         <div class="form-group row">
           <%= f.label :user, class: "col-2 col-form-label text-dark" %>
           <div class="col-10">
@@ -38,13 +39,16 @@
             <%= f.text_area :note, rows: 10, class: "form-control rounded", placeholder: "notes" %>
           </div>
         </div>
+        </div>
 
 
         <div class="form-group row justify-content-center">
-          <%= f.submit class: "btn btn-outline-success btn-lg mr-4" %>
-          <%= link_to "Cancel and back to dashboard", workouts_path, class: "btn btn-outline-danger btn-lg", data: {confirm: "Are you sure?"} %>
+          <%= f.submit class: "btn btn-outline-success btn-block btn-lg ml-4 mr-4 mb-2" %>
+          <%= link_to "Cancel and back to dashboard", workouts_path, class: "btn btn-outline-danger btn-block btn-lg ml-4 mr-4", data: {confirm: "Are you sure?"} %>
         </div>
+        
       <% end %>
+    
     </div>
    
   </div>
