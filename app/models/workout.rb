@@ -1,4 +1,5 @@
 class Workout < ApplicationRecord
+    belongs_to :user
     validates :title, presence: true, length: {minimum:6, maximum:20} 
     validates :duration, presence: true, length: {minimum:1, maximum:5}
     validates :calories, presence: true, length: {minimum:1, maximum:5}
