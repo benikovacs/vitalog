@@ -9,7 +9,15 @@ db migrated.
 
 Bootstrap installed.
 
+associations: one to many
 
+users:
+
+- create user table and model
+- add validations:
+    * username must be present and unique, min 3 max 25
+    * email must be present and unique, max 105
+    * email must be valid format, check with email regex
 
 Things you may want to cover:
 
