@@ -1,0 +1,67 @@
+
+<div class="card mb-2">
+  <div class="dash-hero card-body text-center">
+   <h2> VitaLog Users </h2>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col">
+<div class="card-columns">
+
+  
+  <% @users.each do |user| %>
+  
+    <div class="card text-left shadow mb-2 bg-white rounded ">
+     <div class="workout-card">
+    
+      <div class="card-header font-italic">
+        Username: <%= link_to user.username, user_path(user) %>
+      </div>                
+      
+      <div class="card-body">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-9">
+            
+              <div class="card-text-title text-left"><%= link_to gravatar_for(user, size: 150), user %></div><br>            
+              <p class="card-text"><%= truncate('Email: ' + user.email, length: 30) %> </p>
+              <p class="card-text"><%= pluralize(user.workouts.count, "workout") %> </p><br>
+              
+            
+          </div>
+
+        
+        <div class="container">
+         <div class="row">
+          <div class="col text-center mb-1">
+            <%= link_to "View", user_path(user), class: "btn btn-block btn-outline-success" %>
+          </div>
+
+             <div class="col text-center mb-1">
+            <%= link_to "Edit", edit_user_path(user), class: "btn btn-block btn-outline-success" %>
+          </div>
+                  
+          </div>
+         
+        </div>
+    
+
+</div>
+</div>
+        
+      </div>
+
+      <div class="card-footer mb-auto text-muted">
+        <small>Registered on <%= user.created_at %> </small>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+</div>
+</div>  
+</div>
+</div>
+ 

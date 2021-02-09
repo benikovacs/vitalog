@@ -1,0 +1,36 @@
+<div class="card mb-3">
+  <div class="dash-hero card-body text-center">
+    <h2><span style="color:#C11111; font-size:1em"> <%= @user.username %> 's profile </h2>
+  </div>
+</div>
+
+<h2 class="text-center mt-4"></h2>
+   
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header">
+          <%= @user.username %>
+        </div>
+        <div class="card-body">
+          <div class="card-text-title text-left"><%= gravatar_for @user, size: 200 %></div><br>
+          <div class="card-text-title text-center"><%= simple_format('Registered email: ' + @user.email) %></div>
+          <div class="card-text-title text-center"><%= pluralize(@user.workouts.count, "workout") %></div><br>
+          
+
+          
+          
+                  
+          <%= link_to "Edit", edit_user_path(@user), class: "btn btn-outline-info" %>
+          <%= link_to "Delete", user_path(@user), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          <%= link_to "Dashboard", workouts_path, class: "btn btn-outline-info" %>
+        </div>
+        <div class="card-footer text-muted">
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'workouts/workout'%>
+</div>

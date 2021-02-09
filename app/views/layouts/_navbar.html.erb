@@ -11,27 +11,40 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      
+      <%# login/out %>
+      <% if logged_in? %>
       <li class="nav-item">
-        <%= link_to "Home", workouts_path, class: "nav-link text-white" %>
+        <%= link_to "Dashboard", workouts_path, class: "nav-link text-white" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#">Login</a>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign up", signup_path, class: "nav-link text-white" %>
-      </li>
-        <li class="nav-item">
+       <li class="nav-item">
         <%= link_to 'New Workout', new_workout_path, class: "nav-link text-white" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">About</a>
+         <%= link_to "Log out", logout_path, class: "nav-link text-white", method: :delete %>
+      </li>
+      <% else %>
+        <li class="nav-item">
+           <%= link_to "Log in", login_path, class: "nav-link text-white" %>
+       </li>
+        <li class="nav-item">
+           <%= link_to "Sign up", signup_path, class: "nav-link text-white" %>
+       </li>     
+       <%end%>
+      <%# end of login/out %>
+      
+     
+      <li class="nav-item">
+        <%= link_to 'Users', users_path, class: "nav-link text-white" %>
       </li>
      </ul>
      <ul>
      
-        <a class="nav-link text-white "> 
-          Logged in as <span style="color:#C11111; font-size:1em"><% User.all.each do |user| %> <%= user.username %><% end %> </span></a>
-      </ul>
+     <%if logged_in?%>
+        <a class="nav-item text-white "> 
+          Logged in as <span style="color:#C11111; font-size:1em"><%= link_to current_user.username, user_path(current_user) %> </span></a>
+      
+    <%end%>
    
   </div>
 </nav>
