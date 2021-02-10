@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: %i[ show edit update destroy ]
   before_action :require_user, except: [:show, :index]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy, :show]
 
   # GET /workouts or /workouts.json
   def index

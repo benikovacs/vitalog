@@ -12,12 +12,24 @@
                 </div>
                 <div class="row">                
                 <div class="col-sm">
+                
                 <p>Log in to access your account or sign up to create an account.</p>
+                
                 </div>
                 </div>
                 
+                <% if logged_in? %>                          
+
+
+
+
+               <%= link_to "Add workout", new_workout_path, class: "btn btn-outline-success btn-lg" %>
+
+                <%else%>
                 
                 <%= link_to "Sign up", signup_path, class: "btn btn-outline-success btn-lg" %>
+               
+                <%end%>
                 </div>
             </div>
         </div>
