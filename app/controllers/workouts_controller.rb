@@ -1,13 +1,16 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: %i[ show edit update destroy ]
+  before_action :require_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :require_same_user, only: [:new, :edit, :create, :update, :destroy] 
 
   # GET /workouts or /workouts.json
   def index
-    @workouts = Workout.all
+    @workouts = current_user.workouts
   end
 
   # GET /workouts/1 or /workouts/1.json
   def show
+    
   end
 
   # GET /workouts/new
@@ -22,7 +25,7 @@ class WorkoutsController < ApplicationController
   # POST /workouts or /workouts.json
   def create
     @workout = Workout.new(workout_params)
-    @workout.user = User.first
+    @workout.user = current_user
 
     respond_to do |format|
       if @workout.save
@@ -68,4 +71,16 @@ class WorkoutsController < ApplicationController
     def workout_params
       params.require(:workout).permit(:user, :title, :duration, :calories, :note)
     end
-end
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def require_same_user
+      if current_user != @workout.user
+        flash[:alert] = "you can only access your own workouts"
+        redirect_to @workout
+      end
+    end
+  end
+

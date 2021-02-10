@@ -8,7 +8,7 @@ def create
     if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id #this allows the user to remain signed in in the session
         flash[:notice] = "Login successful"
-        redirect_to users_path
+        redirect_to workouts_path
 
         else
             flash.now[:alert] = "incorrect login details"
