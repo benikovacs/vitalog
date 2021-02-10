@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: %i[ show edit update destroy ]
-  before_action :require_user, only: [:new, :edit, :create, :update, :destroy]
-  before_action :require_same_user, only: [:new, :edit, :create, :update, :destroy] 
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /workouts or /workouts.json
   def index
@@ -72,9 +72,11 @@ class WorkoutsController < ApplicationController
       params.require(:workout).permit(:user, :title, :duration, :calories, :note)
     end
 
-    def set_user
-      @user = User.find(params[:id])
+    def user
+      user = current_user
+    
     end
+
 
     def require_same_user
       if current_user != @workout.user
