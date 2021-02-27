@@ -1,7 +1,11 @@
 
 <div class="card mb-2">
   <div class="dash-hero card-body text-center">
+   <% if @workouts.count == 0 %>
+   <h2> No workouts logged yet, click on <span style="color:#C11111; font-size:1em">New workout</span> to add one</h2>
+   <%else%>
    <h2> Workouts Dashboard</h2>
+   <%end%>
   </div>
 </div>
 

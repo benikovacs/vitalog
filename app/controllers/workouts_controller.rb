@@ -79,7 +79,7 @@ class WorkoutsController < ApplicationController
 
 
     def require_same_user
-      if current_user != @workout.user
+      if current_user != @workout.user && !current_user.admin?
         flash[:alert] = "you can only access your own workouts"
         redirect_to @workout
       end

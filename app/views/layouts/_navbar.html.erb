@@ -33,16 +33,17 @@
        <%end%>
       <%# end of login/out %>
       
-     
+     <% if logged_in? && current_user.admin? %>
       <li class="nav-item">
         <%= link_to 'Users', users_path, class: "nav-link text-white" %>
+        <%end%>
       </li>
      </ul>
      <ul>
      
      <%if logged_in?%>
         <a class="nav-item text-white "> 
-          Logged in as <span style="color:#C11111; font-size:1em"><%= link_to current_user.username, user_path(current_user) %> </span></a>
+          Logged in as <%= "(admin)" if current_user.admin? %> <span style="color:#C11111; font-size:1em"><%= link_to current_user.username, user_path(current_user) %> </span></a>
       
     <%end%>
    

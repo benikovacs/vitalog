@@ -12,3 +12,9 @@ import "bootstrap"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(document).on('turbolinks:load', function() {
+    setTimeout(function() {
+      $('.alert').fadeOut();
+    }, 3000);
+  })

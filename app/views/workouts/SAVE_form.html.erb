@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render 'layouts/errors', obj: @workout %>
+      <%= form_with(model: @workout, class: "shadow p-3 mb-3 bg-light rounded", local: true) do |f| %>
+       
+       <div class="col">
+        <div class="workoutcard">
+        
+        <div class="card text-center">
+        <div class="card-header">
+        Add workout
+        </div>
+        <div>
+
+        
+          <%= f.label :workout, class: "col-2 col-form-label " %>
+          <div class="col-10 p-4"> 
+            
+          <%= f.select :title, ["    Cycling",
+                                "Elyptical trainer",
+                                "Exercise bike",
+                                "Hiking",
+                                "Other",
+                                "Running",
+                                "Skipping", 
+                                "Treadmill",
+                                "Walking",
+                                "Weight",]
+           %>
+            </div>
+          
+          </div>
+                
+        <div class="form-group row">
+          <%= f.label :duration, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10"> 
+            <%= f.select :duration, options_for_select((1..50).map { |i| ["#{i * 5} minutes"] }), class: 'form-control' %>    
+             </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :calories, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10"> 
+            <%= f.select :calories, options_for_select((1..300).map { |i| ["#{i * 5} calories"] }), class: 'form-control' %>
+          </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :note, class: "col-2 col-form-label text-dark" %>
+          <div class="col-10"> 
+            <%= f.text_area :note, rows: 10, class: "form-control rounded", placeholder: "notes" %>
+          </div>
+        </div>
+
+
+
+        <div class="form-group row justify-content-center">
+          <%= f.submit class: "btn btn-outline-success btn-block btn-lg ml-4 mr-4 mb-2" %>
+          <%= link_to "Cancel and back to dashboard", workouts_path, class: "btn btn-outline-danger btn-block btn-lg ml-4 mr-4", data: {confirm: "Are you sure?"} %>
+        </div>
+        
+      <% end %>
+    
+    </div>
+   
+  </div>
+</div>

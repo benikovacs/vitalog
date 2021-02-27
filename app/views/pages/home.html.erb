@@ -1,42 +1,24 @@
-<div class="container-fluid">
-    <div class="row justify-content-end">
-    <div class="col-6">
-        <div class="container" id="home-container">
-            <div class="jumbotron text-right">
-                <div class="row">
-                <div class="col-sm">
-                <h1 class="display-4">Welcome to <span style="color:#C11111; font-size:1em">Vita</span>Log</h1><br>
-                <p class="lead text-right">Your one stop shop for logging all your activites.</p>
-                <p class="lead text-right">100% FREE. Forever.</p>
-                </div>
-                </div>
-                <div class="row">                
-                <div class="col-sm">
-                
-                <p>Log in to access your account or sign up to create an account.</p>
-                
-                </div>
-                </div>
-                
-                <% if logged_in? %>                          
+<div class="container mt-2">
+    <div class="jumbotron">
+    <h1 class="display-6">Welcome to <span style="color:#C11111; font-size:1em; font-weight:normal;">Vita</span><span style="font-size:1em; font-weight:normal;">Log</span></h1>
+    <p class="lead">Your one stop shop for logging all your activites.</p>
+    <p class="lead">100% FREE. Forever.</p>
 
+    <hr class="my-4">
 
+    <% if logged_in? %>
+    <p>Go to your Dashboard to view past activities or create a new one</p>
+    <%else%>
+    <p>Log in to access your account or sign up to create an account.</p>
+    <%end%>
 
+    <% if logged_in? %>
+    <%= link_to "Add workout", new_workout_path, class: "btn btn-success btn-lg my-1" %>
+    <%= link_to "Dashboard", workouts_path, class: "btn btn-success btn-lg" %>
+    <%else%>       
+    <%= link_to "Sign up", signup_path, class: "btn btn-success btn-lg" %>
+    <%= link_to "Log in", login_path, class: "btn btn-success btn-lg" %>
+    <%end%>
 
-               <%= link_to "Add workout", new_workout_path, class: "btn btn-outline-success btn-lg" %>
-
-                <%else%>
-                
-                <%= link_to "Sign up", signup_path, class: "btn btn-outline-success btn-lg" %>
-               
-                <%end%>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
-
-
-
-
-

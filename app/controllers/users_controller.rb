@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def show
       
-        @workouts = @user.workouts
+        @workouts = current_user.workouts
     end
 
     def index
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
             if @user.save
                 session[:user_id] = @user.id #this allows for logged in after signup
                 flash[:notice] = "Welcome to VitaLog #{@user.username}, signup successful"
-                redirect_to workouts_path
+                redirect_to root_path
             else
                 render 'new'
             end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        session[:user_id] = nil
+        session[:user_id] = nil if @user == current_user
         flash[:notice] = "Account and all associated workouts succesfully deleted"
         redirect_to root_path     
       end
@@ -62,11 +62,12 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @user
-          flash[:alert] = "you can only access your own profile"
+        if current_user != @user && !current_user.admin?
+          
           redirect_to root_path
         end
       end
+      
 
 
 end

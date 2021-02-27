@@ -30,10 +30,15 @@
 
 .card-icon {
 
-    height: 40px;
+    height: 300px;
     margin-left: 0px;
     padding-left: 0px;
-    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.user-icon {
+
+    height: 150px;
 }
 
 .navbar {
@@ -50,12 +55,20 @@
   }
 
   .jumbotron {
-      background: none;
+    
+    background: none;
+    
+      
   }
 
 .card {
     opacity: 0.93;
     color: black;
+    
+}
+
+.card-title {
+    font-size: 1.5em;
 }
 
 .form-group {
@@ -65,12 +78,13 @@
 }
 
 body {
-    background: url("background2.jpeg") no-repeat center center fixed;
+    background: url("jumboback1.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
     background-size: cover;
         -o-background-size: cover;
     padding-bottom: 12em;
+    
     
     
     }
@@ -82,5 +96,26 @@ body {
  
 }
 
+.show-card-header {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card-body {
+    
+    font-size: 1.5em;
+
+}
+
+
+
+.workoutcard {
+
+    font-size: 1.5em;
+}
+
+hr {
+    border: 1px dotted lightgray;
+}
 
 

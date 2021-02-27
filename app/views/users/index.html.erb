@@ -25,7 +25,7 @@
           <div class="row mb-2">
             <div class="col-9">
             
-              <div class="card-text-title text-left"><%= link_to gravatar_for(user, size: 150), user %></div><br>            
+              <div class="card-text-title text-center"><%=image_tag "user.jpeg", class: "user-icon p-2" %></div><br>            
               <p class="card-text"><%= truncate('Email: ' + user.email, length: 30) %> </p>
               <p class="card-text"><%= pluralize(user.workouts.count, "workout") %> </p><br>
               
@@ -39,9 +39,7 @@
             <%= link_to "View", user_path(user), class: "btn btn-block btn-outline-success" %>
           </div>
 
-             <div class="col text-center mb-1">
-            <%= link_to "Edit", edit_user_path(user), class: "btn btn-block btn-outline-success" %>
-          </div>
+            
                   
           </div>
          

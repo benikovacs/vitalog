@@ -3,56 +3,68 @@
 <div class="col">
   
   <% @workouts.each do |workout| %>
+
   
     <div class="card text-left shadow mb-2 bg-white rounded ">
      <div class="workout-card">
     
-      <div class="card-header font-italic">
+      <div class="card-header">
         Logged on <%= workout.created_at.strftime("%B %d %Y, %l:%M%P") %>
       </div>                
       
       <div class="card-body">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-9">
-            
+            <div class="col">
+              <%if workout.title == 'Cycling'%>
+                <%=image_tag "cycle.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Elyptical trainer'%>
+                <%=image_tag "gym.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Exercise bike'%>
+                <%=image_tag "gym.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Hiking'%>
+                <%=image_tag "hiking.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Other activity'%>
+                <%=image_tag "other.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Running'%>
+                <%=image_tag "run.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Rackets'%>
+                <%=image_tag "racket.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Treadmill'%>
+                <%=image_tag "run.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Swimming'%>
+                <%=image_tag "swim.png", class: "card-icon p-2" %>
+                <%elsif workout.title == 'Weight'%>
+                <%=image_tag "weight.png", class: "card-icon p-2" %>
+                
+                <%end%>
+             </div>
+            </div>
+          
+            <div class="col">
+
               <h5 class="card-title"><%= link_to workout.title, workout_path(workout), class: "text-success" %></h5>
               <p class="card-text"><%= truncate('Duration: ' + workout.duration + ' mins', length: 100) %> </p>
               <p class="card-text"><%= truncate('Energy burned: ' + workout.calories + ' kcal', length: 100) %></p>
               <p class="card-text"><%= truncate('Notes: ' + workout.note, length: 30) %></p>
+
               
             </div>
-          
-            <div class="col-3">
-              <%=image_tag "sample_icon.png", class: "card-icon" %>
-            </div>
-          
           </div>
         </div>
-        <div class="container">
-         <div class="row">
-          <div class="col text-center mb-1">
-            <%= link_to "View", workout, class: "btn btn-block btn-outline-success" %>
-          </div>
-          <div class="col text-center mb-1">
-            <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-block btn-outline-info" %>
-          </div>
-          <div class="col text-center">
-            <%= link_to "Delete", workout, class: "btn btn-block btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-          </div>
-          </div>
-         
+       <div class='container mb-2'>
+          <%= link_to "View", workout, class: "btn btn-block btn-outline-success" %>
+          <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-block btn-outline-info" %>
+          <%= link_to "Delete", workout, class: "btn btn-block btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
         </div>
-    
-
-
-        
       </div>
 
       <div class="card-footer mb-auto text-muted">
         <small>Updated <%= time_ago_in_words(workout.updated_at) %> ago</small>
+        
       </div>
+      
     </div>
+    <% end %>
+</div>
 
-  
-  <% end %>
